@@ -89,7 +89,7 @@ public class MainActivity extends AppCompatActivity {
         adapter.setOnTreeNodeListener(new TreeViewAdapter.OnTreeNodeListener() {
             @Override
             public boolean onClick(TreeNode node, RecyclerView.ViewHolder holder) {
-                if (!node.isLeaf()) {
+                if (!node.isLeaf() && !node.isLocked()) {
                     //Update and toggle the node.
                     onToggle(!node.isExpand(), holder);
 //                    if (!node.isExpand())
@@ -103,8 +103,7 @@ public class MainActivity extends AppCompatActivity {
                 DirectoryNodeBinder.ViewHolder dirViewHolder = (DirectoryNodeBinder.ViewHolder) holder;
                 final ImageView ivArrow = dirViewHolder.getIvArrow();
                 int rotateDegree = isExpand ? 90 : -90;
-                ivArrow.animate().rotationBy(rotateDegree)
-                        .start();
+                ivArrow.animate().rotationBy(rotateDegree).start();
             }
         });
         rv.setAdapter(adapter);

@@ -35,18 +35,26 @@ public class DirectoryNodeBinder extends TreeViewBinder<DirectoryNodeBinder.View
     }
 
     @Override
-    public void bindView( ViewHolder holder,  int position,  TreeNode node,  TreeViewAdapter mTreeViewAdapter) {
+    public void bindView(ViewHolder holder, int position, TreeNode node, TreeViewAdapter mTreeViewAdapter) {
 //        this.nodes = node;
-        holder.ivArrow.setRotation(0);
-        holder.ivArrow.setImageResource(R.drawable.ic_keyboard_arrow_right_black_18dp);
-        int rotateDegree = node.isExpand() ? 90 : 0;
-        holder.ivArrow.setRotation(rotateDegree);
+
+
+        if (node.isLocked()) {
+            holder.ivArrow.setVisibility(View.INVISIBLE);
+        } else {
+            holder.ivArrow.setRotation(0);
+            holder.ivArrow.setImageResource(R.drawable.ic_keyboard_arrow_right_black_18dp);
+            int rotateDegree = node.isExpand() ? 90 : 0;
+            holder.ivArrow.setRotation(rotateDegree);
+
+            if (node.isLeaf())
+                holder.ivArrow.setVisibility(View.INVISIBLE);
+            else holder.ivArrow.setVisibility(View.VISIBLE);
+        }
+
+
         Dir dirNode = (Dir) node.getContent();
         holder.tvName.setText(dirNode.dirName);
-        if (node.isLeaf())
-            holder.ivArrow.setVisibility(View.INVISIBLE);
-        else holder.ivArrow.setVisibility(View.VISIBLE);
-
 
         if (node.getIsChecked()) {
             holder.isCheckes.setChecked(true);
