@@ -3,7 +3,7 @@
 TreeView implement in Android with RecyclerView..
 
 ## Effect
-![](https://raw.githubusercontent.com/TellH/RecyclerTreeView/master/raw/20200511162048.mp4)
+![](https://github.com/xiaohl-902/RecyclerTreeViews/blob/master/raw/20200511162048.mp4)
 
 Please check out the Demo and source code for more information. If you have any question, feel free to raise an issue. Thanks a lot!
 # RecyclerTreeViews
