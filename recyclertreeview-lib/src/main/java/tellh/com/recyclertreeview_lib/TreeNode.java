@@ -66,7 +66,6 @@ public class TreeNode<T extends LayoutItemType> implements Cloneable {
     public void setChildAllCheckedNo() {
         setIsChecked(false);
         for (TreeNode treeNode : childList) {
-            treeNode.setIsChecked(false);
             treeNode.setChildAllCheckedNo();
         }
     }
@@ -74,7 +73,6 @@ public class TreeNode<T extends LayoutItemType> implements Cloneable {
     public void setChildAllCheckedYes() {
         setIsChecked(true);
         for (TreeNode treeNode : childList) {
-            treeNode.setIsChecked(true);
             treeNode.setChildAllCheckedYes();
         }
     }
